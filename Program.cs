@@ -12,9 +12,8 @@ builder.Services.AddControllers()
     .AddNewtonsoftJson(options =>
         options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
-// Configurar DbContext com Oracle ou outro banco
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseInMemoryDatabase("FrotaDb")); // Para testes, depois pode trocar para Oracle
+    options.UseOracle(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Configurar Swagger/OpenAPI
 builder.Services.AddEndpointsApiExplorer();
