@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace Mottu.FrotaApi.Models
 {
@@ -18,7 +19,11 @@ namespace Mottu.FrotaApi.Models
         [Column(TypeName = "DATE")]
         public DateTime Data { get; set; }
 
+        [Required]
+        [Column(TypeName = "NUMBER")]
         public int MotoId { get; set; }
-        public Moto Moto { get; set; } = null!;
+
+        [JsonIgnore] 
+        public Moto? Moto { get; set; }
     }
 }

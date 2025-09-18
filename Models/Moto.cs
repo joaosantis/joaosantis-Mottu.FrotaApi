@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace Mottu.FrotaApi.Models
 {
@@ -22,8 +23,12 @@ namespace Mottu.FrotaApi.Models
         [Column(TypeName = "NVARCHAR2(50)")]
         public string Status { get; set; } = string.Empty;
 
+        [Required]
+        [Column(TypeName = "NUMBER")]
         public int FilialId { get; set; }
-        public Filial Filial { get; set; } = null!;
+
+        [JsonIgnore] 
+        public Filial? Filial { get; set; }
 
         public ICollection<Manutencao> Manutencoes { get; set; } = new List<Manutencao>();
     }
