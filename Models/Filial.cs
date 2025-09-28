@@ -7,15 +7,14 @@ namespace Mottu.FrotaApi.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column(TypeName = "NUMBER")]
         public int Id { get; set; }
 
         [Required]
-        [Column(TypeName = "NVARCHAR2(200)")]
+        [MaxLength(200)]
         public string Nome { get; set; } = string.Empty;
 
         [Required]
-        [Column(TypeName = "NVARCHAR2(300)")]
+        [MaxLength(300)]
         public string Endereco { get; set; } = string.Empty;
 
         public ICollection<Moto> Motos { get; set; } = new List<Moto>();

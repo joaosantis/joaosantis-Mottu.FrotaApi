@@ -2,7 +2,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Mottu.FrotaApi.Data;
 using Mottu.FrotaApi.Models;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.OpenApi.Any;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,8 +11,9 @@ builder.Services.AddControllers()
     .AddNewtonsoftJson(options =>
         options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
+// PostgreSQL
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseOracle(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Configurar Swagger/OpenAPI
 builder.Services.AddEndpointsApiExplorer();

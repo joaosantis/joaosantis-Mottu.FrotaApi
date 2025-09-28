@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
@@ -15,10 +16,10 @@ namespace Mottu.FrotaApi.Migrations
                 name: "Filiais",
                 columns: table => new
                 {
-                    Id = table.Column<decimal>(type: "NUMBER", nullable: false)
-                        .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
-                    Nome = table.Column<string>(type: "NVARCHAR2(200)", nullable: false),
-                    Endereco = table.Column<string>(type: "NVARCHAR2(300)", nullable: false)
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Nome = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: false),
+                    Endereco = table.Column<string>(type: "character varying(300)", maxLength: 300, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -29,12 +30,12 @@ namespace Mottu.FrotaApi.Migrations
                 name: "Motos",
                 columns: table => new
                 {
-                    Id = table.Column<decimal>(type: "NUMBER", nullable: false)
-                        .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
-                    Placa = table.Column<string>(type: "NVARCHAR2(20)", nullable: false),
-                    Modelo = table.Column<string>(type: "NVARCHAR2(100)", nullable: false),
-                    Status = table.Column<string>(type: "NVARCHAR2(50)", nullable: false),
-                    FilialId = table.Column<decimal>(type: "NUMBER", nullable: false)
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Placa = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: false),
+                    Modelo = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    Status = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
+                    FilialId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -51,11 +52,11 @@ namespace Mottu.FrotaApi.Migrations
                 name: "Manutencoes",
                 columns: table => new
                 {
-                    Id = table.Column<decimal>(type: "NUMBER", nullable: false)
-                        .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
-                    Descricao = table.Column<string>(type: "NVARCHAR2(500)", nullable: false),
-                    Data = table.Column<DateTime>(type: "DATE", nullable: false),
-                    MotoId = table.Column<decimal>(type: "NUMBER", nullable: false)
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Descricao = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: false),
+                    Data = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    MotoId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {

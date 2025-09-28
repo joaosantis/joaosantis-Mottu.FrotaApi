@@ -19,9 +19,9 @@ namespace Mottu.FrotaApi.Data
             modelBuilder.Entity<Filial>(entity =>
             {
                 entity.HasKey(f => f.Id);
-                entity.Property(f => f.Id).HasColumnType("NUMBER").ValueGeneratedOnAdd();
-                entity.Property(f => f.Nome).HasColumnType("NVARCHAR2(200)").IsRequired();
-                entity.Property(f => f.Endereco).HasColumnType("NVARCHAR2(300)").IsRequired();
+                entity.Property(f => f.Id).ValueGeneratedOnAdd();
+                entity.Property(f => f.Nome).HasMaxLength(200).IsRequired();
+                entity.Property(f => f.Endereco).HasMaxLength(300).IsRequired();
                 entity.HasMany(f => f.Motos)
                       .WithOne(m => m.Filial)
                       .HasForeignKey(m => m.FilialId)
@@ -32,10 +32,10 @@ namespace Mottu.FrotaApi.Data
             modelBuilder.Entity<Moto>(entity =>
             {
                 entity.HasKey(m => m.Id);
-                entity.Property(m => m.Id).HasColumnType("NUMBER").ValueGeneratedOnAdd();
-                entity.Property(m => m.Placa).HasColumnType("NVARCHAR2(20)").IsRequired();
-                entity.Property(m => m.Modelo).HasColumnType("NVARCHAR2(100)").IsRequired();
-                entity.Property(m => m.Status).HasColumnType("NVARCHAR2(50)").IsRequired();
+                entity.Property(m => m.Id).ValueGeneratedOnAdd();
+                entity.Property(m => m.Placa).HasMaxLength(20).IsRequired();
+                entity.Property(m => m.Modelo).HasMaxLength(100).IsRequired();
+                entity.Property(m => m.Status).HasMaxLength(50).IsRequired();
                 entity.HasMany(m => m.Manutencoes)
                       .WithOne(ma => ma.Moto)
                       .HasForeignKey(ma => ma.MotoId)
@@ -46,9 +46,9 @@ namespace Mottu.FrotaApi.Data
             modelBuilder.Entity<Manutencao>(entity =>
             {
                 entity.HasKey(ma => ma.Id);
-                entity.Property(ma => ma.Id).HasColumnType("NUMBER").ValueGeneratedOnAdd();
-                entity.Property(ma => ma.Descricao).HasColumnType("NVARCHAR2(500)").IsRequired();
-                entity.Property(ma => ma.Data).HasColumnType("DATE").IsRequired();
+                entity.Property(ma => ma.Id).ValueGeneratedOnAdd();
+                entity.Property(ma => ma.Descricao).HasMaxLength(500).IsRequired();
+                entity.Property(ma => ma.Data).IsRequired();
             });
         }
     }

@@ -8,19 +8,16 @@ namespace Mottu.FrotaApi.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column(TypeName = "NUMBER")]
         public int Id { get; set; }
 
         [Required]
-        [Column(TypeName = "NVARCHAR2(500)")]
+        [MaxLength(500)]
         public string Descricao { get; set; } = string.Empty;
 
         [Required]
-        [Column(TypeName = "DATE")]
         public DateTime Data { get; set; }
 
         [Required]
-        [Column(TypeName = "NUMBER")]
         public int MotoId { get; set; }
 
         [JsonIgnore] 

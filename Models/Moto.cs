@@ -8,23 +8,21 @@ namespace Mottu.FrotaApi.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column(TypeName = "NUMBER")]
         public int Id { get; set; }
 
         [Required]
-        [Column(TypeName = "NVARCHAR2(20)")]
+        [MaxLength(20)]
         public string Placa { get; set; } = string.Empty;
 
         [Required]
-        [Column(TypeName = "NVARCHAR2(100)")]
+        [MaxLength(100)]
         public string Modelo { get; set; } = string.Empty;
 
         [Required]
-        [Column(TypeName = "NVARCHAR2(50)")]
+        [MaxLength(50)]
         public string Status { get; set; } = string.Empty;
 
         [Required]
-        [Column(TypeName = "NUMBER")]
         public int FilialId { get; set; }
 
         [JsonIgnore] 

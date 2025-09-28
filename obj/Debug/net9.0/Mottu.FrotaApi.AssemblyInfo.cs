@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mottu.FrotaApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2d00911928b42fc17db4262ef3e2aab5cf920af0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+52b40e5c963b47355b52ff0b3cb7f663ca7587e4")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mottu.FrotaApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mottu.FrotaApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
