@@ -1,33 +1,23 @@
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text.Json.Serialization;
 
 namespace Mottu.FrotaApi.Models
 {
     public class Moto
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [Required]
-        [MaxLength(20)]
-        public string Placa { get; set; } = string.Empty;
+        [Required, StringLength(10)]
+        public string Placa { get; set; } = "";
 
-        [Required]
-        [MaxLength(100)]
-        public string Modelo { get; set; } = string.Empty;
+        [Required, StringLength(100)]
+        public string Modelo { get; set; } = "";
 
-        [Required]
-        [MaxLength(50)]
-        public string Status { get; set; } = string.Empty;
+        public int Ano { get; set; }
 
-        [Required]
-        public int FilialId { get; set; }
+        [Required, StringLength(20)]
+        public string Status { get; set; } = "ATIVA";
 
-        [JsonIgnore] 
-        public Filial? Filial { get; set; }
-
-        public ICollection<Manutencao> Manutencoes { get; set; } = new List<Manutencao>();
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
     }
 }
