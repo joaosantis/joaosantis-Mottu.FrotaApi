@@ -1,97 +1,99 @@
-# Mottu Frota API
+Mottu Frota API – Sprint 3
 
-API RESTful para gerenciamento de **motos, filiais e manutenções**, desenvolvida em **.NET 7**, com documentação Swagger/OpenAPI e HATEOAS implementado.
+API RESTful para gerenciamento de motos, filiais e manutenções, desenvolvida em .NET 8, com documentação Swagger/OpenAPI e HATEOAS implementado.
 
----
+1) Integrantes
 
-## Integrantes
-- Marcelo Scoleso  
-- João Santis  
-- João Paulo  
+Marcelo Scoleso
 
----
+João Santis
 
-## Justificativa da Arquitetura
+João Paulo
 
-A API segue o modelo **RESTful**, utilizando **Controllers** para cada entidade (`Motos`, `Filiais`, `Manutencoes`) com endpoints CRUD completos.  
+2) Justificativa da Arquitetura
+
+A API segue o modelo RESTful, utilizando Controllers para cada entidade (Motos, Filiais, Manutencoes) com endpoints CRUD completos.
 
 Principais escolhas arquiteturais:
 
-- **.NET Web API**: framework robusto e consolidado para APIs REST.  
-- **Entity Framework Core**: persistência de dados e gerenciamento de relacionamentos.  
-- **HATEOAS**: links de navegação para facilitar consumo e descoberta de recursos.  
-- **Swagger/OpenAPI**: documentação interativa com exemplos de payloads.  
+.NET Web API: framework robusto e consolidado para APIs REST.
 
-Essa arquitetura garante **manutenção fácil, escalabilidade e clareza na comunicação** entre o front-end e a API.
+Entity Framework Core: persistência de dados e gerenciamento de relacionamentos.
 
----
+HATEOAS: links de navegação para facilitar consumo e descoberta de recursos.
 
-## Tecnologias Utilizadas
-- .NET 7  
-- ASP.NET Core Web API  
-- Entity Framework Core  
-- Swagger/OpenAPI  
-- Newtonsoft.Json  
+Swagger/OpenAPI: documentação interativa com exemplos de payloads.
 
----
+Essa arquitetura garante manutenção fácil, escalabilidade e clareza na comunicação entre o front-end e a API.
 
-## Estrutura do Projeto
+3) Tecnologias Utilizadas
 
+.NET 8
+
+ASP.NET Core Web API
+
+Entity Framework Core
+
+Swagger/OpenAPI
+
+Newtonsoft.Json
+
+4) Estrutura do Projeto
 Mottu.FrotaApi/
 ├── Controllers/
-│ ├── MotosController.cs
-│ ├── FiliaisController.cs
-│ └── ManutencoesController.cs
+│   ├── MotosController.cs
+│   ├── FiliaisController.cs
+│   └── ManutencoesController.cs
 ├── Data/
-│ └── AppDbContext.cs
+│   └── AppDbContext.cs
 ├── Models/
-│ ├── Moto.cs
-│ ├── Filial.cs
-│ └── Manutencao.cs
+│   ├── Moto.cs
+│   ├── Filial.cs
+│   └── Manutencao.cs
 ├── Program.cs
 └── README.md
 
-## Instruções de Execução
+5) Instruções de Execução
 
-1. **Clonar o repositório**:
+Clonar o repositório:
 
 git clone https://github.com/MarceloScoleso/Mottu.FrotaApi.git
 cd Mottu.FrotaApi
 
-2. **Restaurar pacotes e construir o projeto**:
+
+Restaurar pacotes e construir o projeto:
 
 dotnet restore
 dotnet build
 
-3. **Executar a API**:
+
+Executar a API:
 
 dotnet run
 
-4. **Acessar o Swagger UI**:
+
+Acessar o Swagger UI:
 
 https://localhost:5001/swagger
 
-## Endpoints
-
-- Entidade	Método	Rota	Descrição
-- Motos	GET	/api/Motos	Lista motos (com paginação)
-- Motos	GET	/api/Motos/{id}	Obter moto por ID
-- Motos	POST	/api/Motos	Criar nova moto
-- Motos	PUT	/api/Motos/{id}	Atualizar moto existente
-- Motos	DELETE	/api/Motos/{id}	Deletar moto
-- Filiais	GET	/api/Filiais	Lista filiais
-- Filiais	GET	/api/Filiais/{id}	Obter filial por ID
-- Filiais	POST	/api/Filiais	Criar nova filial
-- Filiais	PUT	/api/Filiais/{id}	Atualizar filial existente
-- Filiais	DELETE	/api/Filiais/{id}	Deletar filial
-- Manutencoes	GET	/api/Manutencoes	Lista manutenções
-- Manutencoes	GET	/api/Manutencoes/{id}	Obter manutenção por ID
-- Manutencoes	POST	/api/Manutencoes	Criar nova manutenção
-- Manutencoes	PUT	/api/Manutencoes/{id}	Atualizar manutenção existente
-- Manutencoes	DELETE	/api/Manutencoes/{id}	Deletar manutenção
-
-## Exemplos de Uso
-
+6) Endpoints
+Entidade	Método	Rota	Descrição
+Motos	GET	/api/Motos	Lista motos (com paginação)
+Motos	GET	/api/Motos/{id}	Obter moto por ID
+Motos	POST	/api/Motos	Criar nova moto
+Motos	PUT	/api/Motos/{id}	Atualizar moto existente
+Motos	DELETE	/api/Motos/{id}	Deletar moto
+Filiais	GET	/api/Filiais	Lista filiais
+Filiais	GET	/api/Filiais/{id}	Obter filial por ID
+Filiais	POST	/api/Filiais	Criar nova filial
+Filiais	PUT	/api/Filiais/{id}	Atualizar filial existente
+Filiais	DELETE	/api/Filiais/{id}	Deletar filial
+Manutenções	GET	/api/Manutencoes	Lista manutenções
+Manutenções	GET	/api/Manutencoes/{id}	Obter manutenção por ID
+Manutenções	POST	/api/Manutencoes	Criar nova manutenção
+Manutenções	PUT	/api/Manutencoes/{id}	Atualizar manutenção
+Manutenções	DELETE	/api/Manutencoes/{id}	Deletar manutenção
+7) Exemplos de Uso
 Listar motos com paginação e HATEOAS
 GET /api/Motos?page=1&pageSize=10
 
@@ -142,3 +144,59 @@ Payload exemplo:
 
 
 Resposta: 201 Created com o objeto criado.
+
+8) Requisitos Atendidos
+
+✅ CRUD completo para Motos, Filiais e Manutenções
+✅ Implementação de HATEOAS
+✅ Documentação com Swagger/OpenAPI
+✅ Deploy no Azure App Service (Linux)
+✅ Conexão com banco de dados via Entity Framework Core
+
+9) Deploy no Azure
+
+A API está publicada no Azure App Service:
+
+https://app-sprint3-dotnet.azurewebsites.net/swagger
+
+10) Banco de Dados
+
+Foi utilizado Entity Framework Core com suporte a SQL Server.
+O contexto da aplicação está definido em AppDbContext.cs.
+
+11) Considerações de Segurança
+
+Uso de HTTPS obrigatório.
+
+CORS habilitado apenas para domínios confiáveis.
+
+Tratamento centralizado de erros no ApiControllerBase.
+
+12) Próximos Passos
+
+Adicionar autenticação com JWT.
+
+Criar testes automatizados com xUnit.
+
+Implementar CI/CD no Azure DevOps.
+
+13)Evidências da Implementação
+
+Aplicação rodando localmente
+![Aplicação rodando](prints/aplicacaorodando.png)
+
+Swagger carregado
+![Swagger](prints/swagger.png)
+
+Endpoint GET funcionando
+![GET](prints/endpointGET.png)
+
+Endpoint POST funcionando
+![POST](prints/post.png)
+
+Deploy no Azure
+![Deploy](prints/deployAzure.png)
+
+14) Conclusão
+
+O projeto entrega todos os requisitos da Sprint 3 com sucesso, garantindo funcionalidade, organização de código, documentação clara e deploy no Azure.

@@ -1,23 +1,25 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Mottu.FrotaApi.Models
+namespace Mottu.FrotaApi.Models;
+
+public class Moto
 {
-    public class Moto
-    {
-        public int Id { get; set; }
+    public int Id { get; set; }
 
-        [Required, StringLength(10)]
-        public string Placa { get; set; } = "";
+    [Required]
+    [MaxLength(20)]
+    [RegularExpression(@"^[A-Z]{3}[0-9][0-9A-Z][0-9]{2}$", 
+        ErrorMessage = "Placa inválida (padrão brasileiro).")]
+    public string Placa { get; set; } = default!;
 
-        [Required, StringLength(100)]
-        public string Modelo { get; set; } = "";
+    [Required]
+    [MaxLength(100)]
+    public string Modelo { get; set; } = default!;
 
-        public int Ano { get; set; }
+    [Required]
+    [MaxLength(50)]
+    public string Status { get; set; } = default!;
 
-        [Required, StringLength(20)]
-        public string Status { get; set; } = "ATIVA";
-
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
-    }
+    public int FilialId { get; set; }
+    public Filial Filial { get; set; } = default!;
 }

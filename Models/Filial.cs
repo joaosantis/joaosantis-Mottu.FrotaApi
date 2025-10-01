@@ -1,22 +1,22 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+// Se quiser cortar o retorno da coleção no JSON, descomente a linha abaixo e marque a propriedade com [JsonIgnore].
+// using System.Text.Json.Serialization;
 
 namespace Mottu.FrotaApi.Models
 {
     public class Filial
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [Required]
         [MaxLength(200)]
-        public string Nome { get; set; } = string.Empty;
+        public string Nome { get; set; } = default!;
 
-        [Required]
         [MaxLength(300)]
-        public string Endereco { get; set; } = string.Empty;
+        public string Endereco { get; set; } = default!;
 
+        // coleção de motos da filial
+        // Se quiser evitar retornar a lista de motos junto com a Filial, adicione [JsonIgnore] aqui.
         public ICollection<Moto> Motos { get; set; } = new List<Moto>();
     }
 }
