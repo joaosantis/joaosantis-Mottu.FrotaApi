@@ -197,6 +197,11 @@ Endpoint POST funcionando
 Deploy no Azure
 ![Deploy](prints/deployAzure.png)
 
+14) Vídeo de Demonstração
+
+A apresentação em vídeo da API e do deploy no Azure pode ser acessada no link abaixo: 
+Link do vídeo (YouTube): https://youtu.be/3_kn531pMUg
+
 14) Conclusão
 
 O projeto entrega todos os requisitos da Sprint 3 com sucesso, garantindo funcionalidade, organização de código, documentação clara e deploy no Azure.
